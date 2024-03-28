@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head><title>Financial Statement Fraud Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .result {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .result.fraudulent {
+            color: red;
+        }
+
+        .result.non-fraudulent {
+            color: green;
+        }
+    </style>
+        
+</head>
+<body>
+   
+       
+  
+<!--Content section-->
+
+ 
+<div class="login">
+    <h1>Fraud Financial Statement Prediction</h1>
+           
+                <!-- Main Input For Receiving Query to our ML -->
+            
+        <form action="{{ url_for('predict')}}"method="post">
+    
+            <b>
+                <div class="col col-half contact-form">
+                    Inventory Turnover  
+                    <input type="text" name="Inventory Turnover" placeholder="Inventory Turnover" required="required" /><br><br>
+                    Inventory to Sales Ratio   
+                    <input type="text" name="Inventory to Sales Ratio" placeholder="Inventory to Sales Ratio" required="required" /><br><br>
+                    Accounts Receivable to Sales Ratio  
+                    <input type="text" name="Accounts Receivable to Sales Ratio" placeholder="Accounts Receivable to Sales Ratio" required="required" /><br><br>
+                    Inventory-to-asset ratio    
+                    <input type="text" name="Inventory-to-asset ratio" placeholder="Inventory-to-asset ratio" required="required" /><br><br>
+                    Total Asset Turnover    
+                    <input type="text" name="Total Asset Turnover" placeholder="Total Asset Turnover" required="required" /><br><br>
+                    Avg Net Trade Cycle (Days)  
+                    <input type="text" name="Avg Net Trade Cycle (Days)" placeholder="Avg Net Trade Cycle (Days)" required="required" /><br><br>
+                    OCF to Total Equity Ratio   
+                    <input type="text" name="OCF to Total Equity Ratio" placeholder="OCF to Total Equity Ratio" required="required" /><br><br>
+                    Working Capital to Total Assets Ratio   
+                    <input type="text" name="Working Capital to Total Assets Ratio" placeholder="Working Capital to Total Assets Ratio" required="required" /><br><br>
+                    ROIC    
+                    <input type="text" name="ROIC" placeholder="ROIC" required="required" /><br><br>
+                    Gross Profit Margin %   
+                    <input type="text" name="Gross Profit Margin %" placeholder="Gross Profit Margin %" required="required" /><br><br>
+                    Profit Margin   
+                    <input type="text" name="Profit Margin" placeholder="Profit Margin" required="required" /><br><br>
+                    Leverage    
+                    <input type="text" name="Leverage" placeholder="Leverage" required="required" /><br><br>
+           
+                   <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button><br><br>
+         </form>
+                </div>
+           </b>
+           
+              <br>
+              <br>
+              <h1>Financial Statement Fraud Prediction - Result</h1>
+              <div class="result-container">
+                  <div class="result {{ result|lower }}">
+                    {{ prediction_text }}
+                  </div>
+                  <p>Thank you for using our prediction service.</p>
+              </div>
+              
+           
+</div>
+           
+
+
+
+
+
+
+
+</body>
+</html>
